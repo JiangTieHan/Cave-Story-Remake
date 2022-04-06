@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\src\animatedSprite.cpp" />
     <ClCompile Include="source\src\game.cpp" />
     <ClCompile Include="source\src\graphics.cpp" />
     <ClCompile Include="source\src\input.cpp" />
@@ -26,6 +27,7 @@
     <ClCompile Include="source\src\sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\headers\animatedSprite.h" />
     <ClInclude Include="source\headers\game.h" />
     <ClInclude Include="source\headers\globals.h" />
     <ClInclude Include="source\headers\graphics.h" />
