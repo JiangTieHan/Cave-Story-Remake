@@ -1,5 +1,5 @@
 #pragma once
-#include "animatedSprite.h"
+#include "player.h"
 class Graphics;
 
 class Game
@@ -13,5 +13,5 @@ private:
 	void draw(Graphics& graphics);
 	void update(float elapsedTime);
 
-	AnimatedSprite _player;
+	Player _player;
 };
