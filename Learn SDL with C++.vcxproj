@@ -19,7 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\src\game.cpp" />
+    <ClCompile Include="source\src\graphics.cpp" />
+    <ClCompile Include="source\src\input.cpp" />
+    <ClCompile Include="source\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\headers\game.h" />
+    <ClInclude Include="source\headers\graphics.h" />
+    <ClInclude Include="source\headers\input.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -76,22 +84,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)\Lib\SDL2-2.0.20\include;$(SolutionDir)\lib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Lib\SDL2-2.0.20\include;$(SolutionDir)\source\headers;$(SolutionDir)\lib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Lib\SDL2-2.0.20\lib\x64;$(SolutionDir)\lib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)\Lib\SDL2-2.0.20\include;$(SolutionDir)\lib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Lib\SDL2-2.0.20\include;$(SolutionDir)\source\headers;$(SolutionDir)\lib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Lib\SDL2-2.0.20\lib\x64;$(SolutionDir)\lib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)\Lib\SDL2-2.0.20\include;$(SolutionDir)\lib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Lib\SDL2-2.0.20\include;$(SolutionDir)\source\headers;$(SolutionDir)\lib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Lib\SDL2-2.0.20\lib\x64;$(SolutionDir)\lib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)\Lib\SDL2-2.0.20\include;$(SolutionDir)\lib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Lib\SDL2-2.0.20\include;$(SolutionDir)\source\headers;$(SolutionDir)\lib\SDL2_image-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Lib\SDL2-2.0.20\lib\x64;$(SolutionDir)\lib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
