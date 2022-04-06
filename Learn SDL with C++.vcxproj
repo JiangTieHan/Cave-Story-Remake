@@ -23,6 +23,7 @@
     <ClCompile Include="source\src\game.cpp" />
     <ClCompile Include="source\src\graphics.cpp" />
     <ClCompile Include="source\src\input.cpp" />
+    <ClCompile Include="source\src\level.cpp" />
     <ClCompile Include="source\src\main.cpp" />
     <ClCompile Include="source\src\player.cpp" />
     <ClCompile Include="source\src\sprite.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="source\headers\globals.h" />
     <ClInclude Include="source\headers\graphics.h" />
     <ClInclude Include="source\headers\input.h" />
+    <ClInclude Include="source\headers\level.h" />
     <ClInclude Include="source\headers\player.h" />
     <ClInclude Include="source\headers\sprite.h" />
   </ItemGroup>

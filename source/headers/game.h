@@ -1,5 +1,6 @@
 #pragma once
 #include "player.h"
+#include "level.h"
 class Graphics;
 
 class Game
@@ -14,4 +15,5 @@ private:
 	void update(float elapsedTime);
 
 	Player _player;
+	Level _level;
 };

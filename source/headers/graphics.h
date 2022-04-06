@@ -6,6 +6,7 @@
 
 #include <map>
 #include <string>
+#include <SDL.h>
 
 class SDL_Window;
 class SDL_Renderer;

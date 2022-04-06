@@ -29,6 +29,7 @@ void Game::gameLoop()
 	Input input;
 	SDL_Event event;
 
+	this->_level = Level("map 1", Vector2(100, 100), graphics);
 	this->_player = Player(graphics, 100, 100);
 
 	bool running = true;
@@ -67,15 +68,15 @@ void Game::gameLoop()
 			running = false;
 		}
 
-		else if (input.isKeyHeld(SDL_SCANCODE_LEFT))
+		else if (input.isKeyHeld(SDL_SCANCODE_A))
 		{
 			this->_player.moveLeft();
 		}
-		else if (input.isKeyHeld(SDL_SCANCODE_RIGHT))
+		else if (input.isKeyHeld(SDL_SCANCODE_D))
 		{
 			this->_player.moveRight();
 		}
-		if (!input.isKeyHeld(SDL_SCANCODE_LEFT) && !input.isKeyHeld(SDL_SCANCODE_RIGHT))
+		if (!input.isKeyHeld(SDL_SCANCODE_A) && !input.isKeyHeld(SDL_SCANCODE_D))
 		{
 			this->_player.stopMoving();
 		}
@@ -94,6 +95,7 @@ void Game::draw(Graphics& graphics)
 {
 	graphics.clear();
 
+	this->_level.draw(graphics);
 	this->_player.draw(graphics);
 
 	graphics.flip();
@@ -101,5 +103,6 @@ void Game::draw(Graphics& graphics)
 
 void Game::update(float elapsedTime)
 {
+	this->_level.update(elapsedTime);
 	this->_player.update(elapsedTime);
 }
