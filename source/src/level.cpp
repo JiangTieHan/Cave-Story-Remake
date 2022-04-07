@@ -10,6 +10,12 @@
 
 using namespace tinyxml2;
 
+//---------------------------------------------------------------------------------------------
+/* Tile class is in level.h because a linker error will pop up everytime we try to call Tile in
+* level.cpp. However, Tile class can be called in every other files except level.cpp. I can not
+*  fix this error so I have to put Tile class in here.
+*/
+
 Tile::Tile()
 {
 }
@@ -34,6 +40,8 @@ void Tile::draw(Graphics& graphics)
 
 	graphics.blitSurface(this->_tileset, &sourceRect, &destRect);
 }
+
+//---------------------------------------------------------------------------------------------------------
 
 Level::Level()
 {

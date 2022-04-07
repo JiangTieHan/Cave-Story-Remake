@@ -9,7 +9,11 @@ struct SDL_Texture;
 struct SDL_Rect;
 struct Tileset;
 
-//-------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------
+/* Tile class is in level.h because a linker error will pop up everytime we try to call Tile in
+* level.cpp. However, Tile class can be called in every other files except level.cpp. I can not
+*  fix this error so I have to put Tile class in here.
+*/
 class Tile
 {
 public:
