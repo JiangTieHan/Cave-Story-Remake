@@ -9,6 +9,7 @@ struct SDL_Texture;
 struct SDL_Rect;
 struct Tileset;
 
+//-------------------------------------------------------------------------------------------
 class Tile
 {
 public:
@@ -23,6 +24,7 @@ private:
 	Vector2 _tilesetPosition;
 	Vector2 _position;
 };
+//---------------------------------------------------------------------------------------------
 
 class Level
 {
