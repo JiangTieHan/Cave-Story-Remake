@@ -7,7 +7,7 @@ class Player : public AnimatedSprite
 {
 public:
 	Player();
-	Player(Graphics& graphics, float x, float y);
+	Player(Graphics& graphics, Vector2 spawnPoint);
 	void draw(Graphics& graphics);
 	void update(float elapsedTime);
 
@@ -29,7 +29,13 @@ public:
 	virtual void animationDone(std::string currentAnimation) override;
 	virtual void setupAnimations() override;
 
+	void handleTileCollisions(std::vector<Rectangle>& others);
+
+	inline const float getX() const { return _x; };
+	inline const float getY() const { return _y; };
+
 private:
 	float _dx, _dy;
 	Direction _facing;
+	bool _grounded;
 };

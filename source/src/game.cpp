@@ -30,7 +30,7 @@ void Game::gameLoop()
 	SDL_Event event;
 
 	this->_level = Level("Map 1", Vector2(100, 100), graphics);
-	this->_player = Player(graphics, 100, 100);
+	this->_player = Player(graphics, this->_level.getPlayerSpawnPoint());
 
 	bool running = true;
 	int LAST_UPDATE_TIME = SDL_GetTicks();
@@ -105,4 +105,12 @@ void Game::update(float elapsedTime)
 {
 	this->_level.update(elapsedTime);
 	this->_player.update(elapsedTime);
+
+	// Check collisions
+	std::vector<Rectangle> others;
+	if ((others = this->_level.checkTileCollisions(this->_player.getBoundingBox())).size() > 0)
+	{
+		// Player collided with at least one tile. Handle it.
+		this->_player.handleTileCollisions(others);
+	}
 }

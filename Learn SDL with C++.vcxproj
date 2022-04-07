@@ -38,6 +38,7 @@
     <ClInclude Include="source\headers\input.h" />
     <ClInclude Include="source\headers\level.h" />
     <ClInclude Include="source\headers\player.h" />
+    <ClInclude Include="source\headers\rectangle.h" />
     <ClInclude Include="source\headers\sprite.h" />
     <ClInclude Include="source\headers\tile.h" />
     <ClInclude Include="source\headers\tinyxml2.h" />
