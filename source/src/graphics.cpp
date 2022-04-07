@@ -3,6 +3,8 @@
 #include "graphics.h"
 #include "globals.h"
 
+#include "tile.h"
+
 
 /* Graphics clss
 *  Holds all info. dealing with graphics for the game
@@ -26,6 +28,7 @@ Graphics::Graphics()
 Graphics::~Graphics()
 {
 	SDL_DestroyWindow(this->_window);
+	SDL_DestroyRenderer(this->_renderer);
 }
 
 SDL_Surface* Graphics::loadImage(const std::string& filePath)

@@ -36,6 +36,12 @@
     <ClCompile Include="source\src\player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\src\tile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\src\tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="source\src\level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -63,6 +69,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\headers\level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\headers\tile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\headers\tinyxml2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

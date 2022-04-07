@@ -1,9 +1,28 @@
 #pragma once
 #include <string>
+#include <vector>
 #include "globals.h"
+#include "tile.h"
 
 class Graphics;
 struct SDL_Texture;
+struct SDL_Rect;
+struct Tileset;
+
+class Tile
+{
+public:
+	Tile();
+	Tile(SDL_Texture* tileset, Vector2 size, Vector2 tilesetPosition, Vector2 position);
+	void update(float elapsedTime);
+	void draw(Graphics& graphics);
+
+private:
+	SDL_Texture* _tileset;
+	Vector2 _size;
+	Vector2 _tilesetPosition;
+	Vector2 _position;
+};
 
 class Level
 {
@@ -18,11 +37,35 @@ public:
 private:
 	std::string _mapName;
 	Vector2 _spawnPoint;
+
 	Vector2 _size;
+	Vector2 _tileSize;
+
 	SDL_Texture* _backgroundTexture;
+
+	std::vector<Tile> _tileList;
+	std::vector<Tileset> _tilesets;
 
 	/* void loadMap
 	*  Loads a map;
 	*/
 	void loadMap(std::string mapName, Graphics& graphics);
+};
+
+// Tileset structure
+struct Tileset
+{
+	SDL_Texture* Texture;
+	int FirstGid;
+
+	Tileset()
+	{
+		this->FirstGid = -1;
+	}
+
+	Tileset(SDL_Texture* texture, int firstGid)
+	{
+		this->Texture = texture;
+		this->FirstGid = firstGid;
+	}
 };
