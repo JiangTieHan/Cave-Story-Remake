@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\src\animatedSprite.cpp" />
+    <ClCompile Include="source\src\animatedTile.cpp" />
     <ClCompile Include="source\src\game.cpp" />
     <ClCompile Include="source\src\graphics.cpp" />
     <ClCompile Include="source\src\input.cpp" />
@@ -32,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\headers\animatedSprite.h" />
+    <ClInclude Include="source\headers\animatedTile.h" />
     <ClInclude Include="source\headers\game.h" />
     <ClInclude Include="source\headers\globals.h" />
     <ClInclude Include="source\headers\graphics.h" />

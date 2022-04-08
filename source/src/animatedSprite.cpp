@@ -50,8 +50,7 @@ void AnimatedSprite::update(int elapsedTime)
 			}
 			else
 			{
-				this->_frameIndex = 0;
-				this->animationDone(this->_currentAnimation);
+				stopAnimation();
 			}
 		}
 	}

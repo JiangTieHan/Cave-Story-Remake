@@ -5,6 +5,7 @@
 #include "tile.h"
 #include "rectangle.h"
 #include "slope.h"
+#include "animatedTile.h"
 
 class Graphics;
 struct SDL_Texture;
@@ -24,11 +25,36 @@ public:
 	void update(float elapsedTime);
 	void draw(Graphics& graphics);
 
-private:
+protected:
 	SDL_Texture* _tileset;
 	Vector2 _size;
 	Vector2 _tilesetPosition;
 	Vector2 _position;
+};
+
+class AnimatedTile : public Tile
+{
+public:
+	AnimatedTile(std::vector<Vector2> tilesetPositions, int duration, SDL_Texture* tileset, Vector2 size, Vector2 position);
+	void update(float elapsedTime);
+	void draw(Graphics& graphics);
+
+protected:
+	int _amountOfTime = 0;
+	bool _notDone = false;
+
+private:
+	std::vector<Vector2> _tilesetPositions;
+	int _tileToDraw;
+	int _duration;
+};
+
+struct AnimatedTileInfo
+{
+	int TilesetsFirstGid;
+	int StartTileId;
+	std::vector<int> TileIds;
+	int Duration;
 };
 //---------------------------------------------------------------------------------------------
 
@@ -59,11 +85,15 @@ private:
 	std::vector<Tileset> _tilesets;
 	std::vector<Rectangle> _collisionRects;
 	std::vector<Slope> _slopes;
+	std::vector<AnimatedTile> _animatedTileList;
+	std::vector<AnimatedTileInfo> _animatedTileInfos;
 
 	/* void loadMap
 	*  Loads a map;
 	*/
 	void loadMap(std::string mapName, Graphics& graphics);
+
+	Vector2 getTilesetPosition(Tileset tls, int gid, int tileWidth, int tileHeight);
 };
 
 // Tileset structure
