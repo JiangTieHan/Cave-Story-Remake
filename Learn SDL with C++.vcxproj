@@ -39,9 +39,11 @@
     <ClInclude Include="source\headers\level.h" />
     <ClInclude Include="source\headers\player.h" />
     <ClInclude Include="source\headers\rectangle.h" />
+    <ClInclude Include="source\headers\slope.h" />
     <ClInclude Include="source\headers\sprite.h" />
     <ClInclude Include="source\headers\tile.h" />
     <ClInclude Include="source\headers\tinyxml2.h" />
+    <ClInclude Include="source\headers\utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -2,6 +2,7 @@
 #include "game.h"
 #include "graphics.h"
 #include "input.h"
+#include "iostream"
 
 /* Game class
 *  This class holds all info. for our main game loop
@@ -76,6 +77,10 @@ void Game::gameLoop()
 		{
 			this->_player.moveRight();
 		}
+		if (input.wasKeyPressed(SDL_SCANCODE_SPACE))
+		{
+			this->_player.jump();
+		}
 		if (!input.isKeyHeld(SDL_SCANCODE_A) && !input.isKeyHeld(SDL_SCANCODE_D))
 		{
 			this->_player.stopMoving();
@@ -112,5 +117,11 @@ void Game::update(float elapsedTime)
 	{
 		// Player collided with at least one tile. Handle it.
 		this->_player.handleTileCollisions(others);
+	}
+
+	std::vector<Slope> otherSlopes;
+	if ((otherSlopes = this->_level.checkSlopeCollisions(this->_player.getBoundingBox())).size() > 0)
+	{
+		this->_player.handleSlopeCollisions(otherSlopes);
 	}
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "animatedSprite.h"
+#include "slope.h"
 
 class Graphics;
 
@@ -26,10 +27,13 @@ public:
 	*/
 	void stopMoving();
 
+	void jump();
+
 	virtual void animationDone(std::string currentAnimation) override;
 	virtual void setupAnimations() override;
 
 	void handleTileCollisions(std::vector<Rectangle>& others);
+	void handleSlopeCollisions(std::vector<Slope>& others);
 
 	inline const float getX() const { return _x; };
 	inline const float getY() const { return _y; };
