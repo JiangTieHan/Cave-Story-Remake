@@ -27,6 +27,11 @@ public:
 	*/
 	void stopMoving();
 
+	void lookUp();
+	void stopLookingUp();
+	void lookDown();
+	void stopLookingDown();
+
 	void jump();
 
 	virtual void animationDone(std::string currentAnimation) override;
@@ -42,4 +47,6 @@ private:
 	float _dx, _dy;
 	Direction _facing;
 	bool _grounded;
+	bool _lookingUp;
+	bool _lookingDown;
 };
