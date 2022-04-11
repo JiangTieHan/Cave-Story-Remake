@@ -18,4 +18,12 @@ private:
 
 	Sprite _healthBarSprite;
 	Sprite _healthNumber1;
+	Sprite _currentHealthBar;
+
+	Sprite _lvWord;
+	Sprite _lvNumber;
+	Sprite _expBar;
+
+	Sprite _slash;
+	Sprite _dashes;
 };
