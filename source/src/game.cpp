@@ -31,6 +31,7 @@ void Game::gameLoop()
 	SDL_Event event;
 
 	this->_level = Level("Map 1", Vector2(100, 100), graphics);
+	this->_hud = HUD(graphics, _player);
 	this->_player = Player(graphics, this->_level.getPlayerSpawnPoint());
 
 	bool running = true;
@@ -77,20 +78,20 @@ void Game::gameLoop()
 		{
 			this->_player.moveRight();
 		}
-		if (input.isKeyHeld(SDL_SCANCODE_UP))
+		if (input.isKeyHeld(SDL_SCANCODE_W))
 		{
 			this->_player.lookUp();
 		}
-		else if (input.isKeyHeld(SDL_SCANCODE_DOWN))
+		else if (input.isKeyHeld(SDL_SCANCODE_S))
 		{
 			this->_player.lookDown();
 		}
 
-		if (input.wasKeyReleased(SDL_SCANCODE_UP))
+		if (input.wasKeyReleased(SDL_SCANCODE_W))
 		{
 			this->_player.stopLookingUp();
 		}
-		if (input.wasKeyReleased(SDL_SCANCODE_DOWN))
+		if (input.wasKeyReleased(SDL_SCANCODE_S))
 		{
 			this->_player.stopLookingDown();
 		}
@@ -120,6 +121,8 @@ void Game::draw(Graphics& graphics)
 	this->_level.draw(graphics);
 	this->_player.draw(graphics);
 
+	this->_hud.draw(graphics);
+
 	graphics.flip();
 }
 
@@ -127,6 +130,7 @@ void Game::update(float elapsedTime)
 {
 	this->_level.update(elapsedTime);
 	this->_player.update(elapsedTime);
+	this->_hud.update(elapsedTime);
 
 	// Check collisions
 	std::vector<Rectangle> others;

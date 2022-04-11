@@ -23,6 +23,7 @@
     <ClCompile Include="source\src\animatedTile.cpp" />
     <ClCompile Include="source\src\game.cpp" />
     <ClCompile Include="source\src\graphics.cpp" />
+    <ClCompile Include="source\src\HUD.cpp" />
     <ClCompile Include="source\src\input.cpp" />
     <ClCompile Include="source\src\level.cpp" />
     <ClCompile Include="source\src\main.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="source\headers\game.h" />
     <ClInclude Include="source\headers\globals.h" />
     <ClInclude Include="source\headers\graphics.h" />
+    <ClInclude Include="source\headers\HUD.h" />
     <ClInclude Include="source\headers\input.h" />
     <ClInclude Include="source\headers\level.h" />
     <ClInclude Include="source\headers\player.h" />

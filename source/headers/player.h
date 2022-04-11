@@ -1,6 +1,7 @@
 #pragma once
 #include "animatedSprite.h"
 #include "slope.h"
+#include <iostream>
 
 class Graphics;
 
@@ -42,6 +43,8 @@ public:
 
 	inline const float getX() const { return _x; };
 	inline const float getY() const { return _y; };
+	inline const int getMaxHealth() const { return _maxHealth; }
+	inline const int getCurrentHealth() const { return _currentHealth; }
 
 private:
 	float _dx, _dy;
@@ -49,4 +52,6 @@ private:
 	bool _grounded;
 	bool _lookingUp;
 	bool _lookingDown;
+	int _maxHealth;
+	int _currentHealth;
 };

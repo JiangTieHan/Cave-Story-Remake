@@ -23,6 +23,12 @@ public:
 	inline const Rectangle getBoundingBox() const { return _boundingBox; }
 	const sides::Side getCollisionSide(Rectangle& other) const;
 
+	inline const float getX() const { return _x; }
+	inline const float getY() const { return _y; }
+
+	void setSourceRectX(int value);
+	void setSourceRectY(int value);
+
 protected:
 	SDL_Rect _sourceRect;
 	SDL_Texture* _spriteSheet;

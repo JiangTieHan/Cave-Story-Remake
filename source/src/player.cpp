@@ -19,7 +19,9 @@ Player::Player(Graphics& graphics, Vector2 spawnPoint) :
 	_dx(0.f),
 	_dy(0.f),
 	_facing(RIGHT),
-	_grounded(false)
+	_grounded(false),
+	_maxHealth(3),
+	_currentHealth(3)
 {
 	graphics.loadImage("content/sprites/MyChar.png");
 	this->setupAnimations();
