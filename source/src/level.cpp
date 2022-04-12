@@ -8,6 +8,7 @@
 #include <cmath>
 #include <iostream>
 #include "utils.h"
+#include "enemy.h"
 
 using namespace tinyxml2;
 
@@ -59,11 +60,16 @@ Level::~Level()
 {
 }
 
-void Level::update(float elapsedTime)
+void Level::update(float elapsedTime, Player& player)
 {
 	for (int i = 0; i < this->_animatedTileList.size(); i++)
 	{
 		this->_animatedTileList.at(i).update(elapsedTime);
+	}
+
+	for (int i = 0; i < this->_enemies.size(); i++)
+	{
+		this->_enemies.at(i)->update(elapsedTime, player);
 	}
 }
 
@@ -76,6 +82,10 @@ void Level::draw(Graphics& graphics)
 	for (int i = 0; i < this->_animatedTileList.size(); i++)
 	{
 		this->_animatedTileList.at(i).draw(graphics);
+	}
+	for (int i = 0; i < this->_enemies.size(); i++)
+	{
+		this->_enemies.at(i)->draw(graphics);
 	}
 }
 
@@ -450,6 +460,28 @@ void Level::loadMap(std::string mapName, Graphics& graphics)
 					}
 				}
 			}
+			else if (ss.str() == "enemies")
+			{
+				float x, y;
+				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
+				if (pObject)
+				{
+					while (pObject)
+					{
+						x = pObject->FloatAttribute("x");
+						y = pObject->FloatAttribute("y");
+						const char* name = pObject->Attribute("name");
+						std::stringstream ss;
+						ss << name;
+						if (ss.str() == "bat")
+						{
+							this->_enemies.push_back(new Bat(graphics, Vector2(std::floor(x)* globals::SPRITE_SCALE, std::floor(y)* globals::SPRITE_SCALE)));
+						}
+						pObject = pObject->NextSiblingElement("object");
+					}
+				}
+			}
+
 			pObjectGroup = pObjectGroup->NextSiblingElement("objectgroup");
 		}
 	}
