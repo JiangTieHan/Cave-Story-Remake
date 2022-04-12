@@ -1,9 +1,11 @@
 #pragma once
 #include "animatedSprite.h"
 #include "slope.h"
+#include "door.h"
 #include <iostream>
 
 class Graphics;
+class Level;
 
 class Player : public AnimatedSprite
 {
@@ -40,6 +42,7 @@ public:
 
 	void handleTileCollisions(std::vector<Rectangle>& others);
 	void handleSlopeCollisions(std::vector<Slope>& others);
+	void handleDoorCollision(std::vector<Door>& others, Level& level, Graphics& graphics);
 
 	inline const float getX() const { return _x; };
 	inline const float getY() const { return _y; };

@@ -98,5 +98,8 @@
     <ClInclude Include="source\headers\HUD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\headers\door.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

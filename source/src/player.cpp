@@ -1,5 +1,6 @@
 #include "player.h"
 #include "graphics.h"
+#include "level.h"
 #include <iostream>
 
 namespace player_constants
@@ -219,3 +220,18 @@ void Player::handleSlopeCollisions(std::vector<Slope>& others)
 		}
 	}
 }
+
+void Player::handleDoorCollision(std::vector<Door>& others, Level& level, Graphics& graphics)
+{
+	for (int i = 0; i < others.size(); i++)
+	{
+		if (this->_grounded && this->_lookingDown)
+		{
+			level = Level(others.at(i).getDestination(), graphics);
+			this->_x = level.getPlayerSpawnPoint().x;
+			this->_y = level.getPlayerSpawnPoint().y;
+		}
+	}
+}
+
+

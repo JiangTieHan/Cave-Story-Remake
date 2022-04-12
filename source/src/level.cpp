@@ -48,9 +48,8 @@ Level::Level()
 {
 }
 
-Level::Level(std::string mapName, Vector2 spawnPoint, Graphics& graphics) :
+Level::Level(std::string mapName, Graphics& graphics) :
 	_mapName(mapName),
-	_spawnPoint(spawnPoint),
 	_size(Vector2(0, 0))
 {
 	this->loadMap(mapName, graphics);
@@ -101,6 +100,20 @@ std::vector<Slope> Level::checkSlopeCollisions(const Rectangle& other)
 		if (this->_slopes.at(i).collidesWith(other))
 		{
 			others.push_back(this->_slopes.at(i));
+		}
+	}
+	return others;
+}
+
+std::vector<Door> Level::checkDoorCollisions(const Rectangle& other)
+{
+	std::vector<Door> others;
+
+	for (int i = 0; i < this->_doorList.size(); i++)
+	{
+		if (this->_doorList.at(i).collidesWith(other))
+		{
+			others.push_back(this->_doorList.at(i));
 		}
 	}
 	return others;
@@ -387,6 +400,52 @@ void Level::loadMap(std::string mapName, Graphics& graphics)
 						{
 							this->_spawnPoint = Vector2(std::ceil(x) * globals::SPRITE_SCALE, std::ceil(y) * globals::SPRITE_SCALE);
 						}
+						pObject = pObject->NextSiblingElement("object");
+					}
+				}
+			}
+			else if (ss.str() == "doors")
+			{
+				XMLElement* pObject = pObjectGroup->FirstChildElement("object");
+				if (pObject)
+				{
+					while (pObject)
+					{
+						float x = pObject->FloatAttribute("x");
+						float y = pObject->FloatAttribute("y");
+						float w = pObject->FloatAttribute("width");
+						float h = pObject->FloatAttribute("height");
+						Rectangle rect = Rectangle(x, y, w, h);
+
+						XMLElement* pProperties = pObject->FirstChildElement("properties");
+						if (pProperties)
+						{
+							while (pProperties)
+							{
+								XMLElement* pProperty = pProperties->FirstChildElement("property");
+								if (pProperty)
+								{
+									while (pProperty)
+									{
+										const char* name = pProperty->Attribute("name");
+										std::stringstream ss;
+										ss << name;
+										if (ss.str() == "destination")
+										{
+											const char* value = pProperty->Attribute("value");
+											std::stringstream ss2;
+											ss2 << value;
+											Door door = Door(rect, ss2.str());
+											this->_doorList.push_back(door);
+										}
+										pProperty = pProperty->NextSiblingElement("property");
+									}
+								}
+
+								pProperties = pProperties->NextSiblingElement("properties");
+							}
+						}
+
 						pObject = pObject->NextSiblingElement("object");
 					}
 				}

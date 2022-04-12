@@ -35,6 +35,7 @@
   <ItemGroup>
     <ClInclude Include="source\headers\animatedSprite.h" />
     <ClInclude Include="source\headers\animatedTile.h" />
+    <ClInclude Include="source\headers\door.h" />
     <ClInclude Include="source\headers\game.h" />
     <ClInclude Include="source\headers\globals.h" />
     <ClInclude Include="source\headers\graphics.h" />
