@@ -74,6 +74,7 @@ public:
 	std::vector<Rectangle> checkTileCollisions(const Rectangle& other);
 	std::vector<Slope> checkSlopeCollisions(const Rectangle& other);
 	std::vector<Door> checkDoorCollisions(const Rectangle& other);
+	std::vector<Enemy*> checkEnemyCollision(const Rectangle& other);
 
 	inline const Vector2 getPlayerSpawnPoint() const { return this->_spawnPoint; }
 

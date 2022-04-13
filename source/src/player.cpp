@@ -1,6 +1,7 @@
 #include "player.h"
 #include "graphics.h"
 #include "level.h"
+#include "enemy.h"
 #include <iostream>
 
 namespace player_constants
@@ -232,6 +233,19 @@ void Player::handleDoorCollision(std::vector<Door>& others, Level& level, Graphi
 			this->_y = level.getPlayerSpawnPoint().y;
 		}
 	}
+}
+
+void Player::handleEnemyCollisions(std::vector<Enemy*>& others)
+{
+	for (int i = 0; i < others.size(); i++)
+	{
+		others.at(i)->touchPlayer(*this);
+	}
+}
+
+void Player::gainHealth(int amount)
+{
+	this->_currentHealth += amount;
 }
 
 

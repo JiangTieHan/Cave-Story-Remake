@@ -14,6 +14,7 @@ public:
 		int width, int height, Vector2 spawnPoint, int timeToUpdate);
 	virtual void update(int elapsedTime, Player& player);
 	virtual void draw(Graphics& graphics);
+	virtual void touchPlayer(Player& player) = 0;
 
 	inline const int getMaxHealth() const { return this->_maxHealth; }
 	inline const int getCurrentHealth() const { return this->_currentHealth; }
@@ -35,7 +36,9 @@ public:
 
 	void animationDone(std::string currentAnimation);
 	void setupAnimations();
+	void touchPlayer(Player& player);
 
 private:
-
+	float _startingX, _startingY;
+	bool _shouldMoveUp;
 };

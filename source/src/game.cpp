@@ -152,4 +152,10 @@ void Game::update(float elapsedTime)
 	{
 		this->_player.handleDoorCollision(otherDoors, this->_level, *this->_graphics);
 	}
+
+	std::vector<Enemy*> otherEnemies;
+	if ((otherEnemies = this->_level.checkEnemyCollision(this->_player.getBoundingBox())).size() > 0)
+	{
+		this->_player.handleEnemyCollisions(otherEnemies);
+	}
 }

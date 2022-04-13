@@ -129,6 +129,20 @@ std::vector<Door> Level::checkDoorCollisions(const Rectangle& other)
 	return others;
 }
 
+std::vector<Enemy*> Level::checkEnemyCollision(const Rectangle& other)
+{
+	std::vector<Enemy*> others;
+	for (int i = 0; i < this->_enemies.size(); i++)
+	{
+		if (this->_enemies.at(i)->getBoundingBox().collidesWith(other))
+		{
+			others.push_back(this->_enemies.at(i));
+		}
+	}
+
+	return others;
+}
+
 void Level::loadMap(std::string mapName, Graphics& graphics)
 {
 	// Pare the tmx file
